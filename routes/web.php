@@ -23,6 +23,9 @@ Route::get('/auth/google/callback',[\App\Http\Controllers\Auth\GoogleAuthControl
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-Route::get('/profile/twoFactor', [\App\Http\Controllers\ProfileController::class, 'twoFactorAuth'])->name('twoFactor');
-Route::post('/profile/twoFactor', [\App\Http\Controllers\ProfileController::class, 'postTwoFactorAuth']);
+Route::middleware('auth')->prefix('/profile')->group(function (){
+    Route::get('/', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+    Route::get('/twoFactor', [\App\Http\Controllers\ProfileController::class, 'twoFactorAuth'])->name('twoFactor');
+    Route::post('/twoFactor', [\App\Http\Controllers\ProfileController::class, 'postTwoFactorAuth']);
+});
+
