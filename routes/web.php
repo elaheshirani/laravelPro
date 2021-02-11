@@ -25,7 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware('auth')->prefix('/profile')->group(function (){
     Route::get('/', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-    Route::get('/twoFactor', [\App\Http\Controllers\ProfileController::class, 'twoFactorAuth'])->name('twoFactor');
+    Route::get('/twoFactor', [\App\Http\Controllers\ProfileController::class, 'twoFactorAuth'])->name('profile.twoFactor');
     Route::post('/twoFactor', [\App\Http\Controllers\ProfileController::class, 'postTwoFactorAuth']);
+    Route::get('/twoFactor/phone', [\App\Http\Controllers\ProfileController::class, 'getPhoneVerify'])->name('profile.twoFactor.phone');
+    Route::post('/twoFactor/phone', [\App\Http\Controllers\ProfileController::class, 'postPhoneVerify']);
 });
 

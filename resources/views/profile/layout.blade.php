@@ -11,7 +11,7 @@
                                 <a class="nav-link {{request()->is('profile') ? 'active' : ''}}"  href="{{route('profile')}}">index</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{request()->is('profile/twoFactor') ? 'active' : ''}}" href="{{route('twoFactor')}}">twoFactorAuth</a>
+                                <a class="nav-link {{request()->is('profile/twoFactor') ? 'active' : ''}}" href="{{route('profile.twoFactor')}}">twoFactorAuth</a>
                             </li>
                         </ul>
                     </div>
