@@ -41,3 +41,6 @@ require('sweetalert');
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+//require sweet alert
+require('sweetalert');
