@@ -8,10 +8,15 @@
                     <div class="card-header">
                         <ul class="nav nav-pills card-header-pills">
                             <li class="nav-item">
-                                <a href="{{ route('profile') }}" class="nav-link active">Profile</a>
+                                <a href="{{ route('profile') }}"
+                                   class="nav-link {{ request()->is('profile') ? 'active' : '' }}"
+                                >Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('auth-factors') }}" class="nav-link">Auth Factors</a>
+                                <a href="{{ route('profile.auth-factors') }}"
+                                   class="nav-link
+                                    {{ request()->is('profile/auth-factors') ? 'active' : '' }}">
+                                    Auth Factors</a>
                             </li>
                         </ul>
                     </div>

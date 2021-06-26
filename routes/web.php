@@ -22,5 +22,10 @@ Route::get('/auth/google',[\App\Http\Controllers\Auth\GoogleAuthController::clas
 Route::get('/auth/google/callback',[\App\Http\Controllers\Auth\GoogleAuthController::class,'callback']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-Route::get('/auth-factors', [App\Http\Controllers\ProfileController::class, 'authFactors'])->name('auth-factors');
+
+Route::middleware('auth')->group(function(){
+    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile/auth-factors', [App\Http\Controllers\ProfileController::class, 'authFactors'])->name('profile.auth-factors');
+    Route::post('/profile/auth-factors', [App\Http\Controllers\ProfileController::class, 'updateAuthFactors'])->name('profile.auth-factors');
+});
+

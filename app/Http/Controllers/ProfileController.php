@@ -15,4 +15,13 @@ class ProfileController extends Controller
     {
         return view('profile.auth-factors');
     }
+
+    public function updateAuthFactors(Request $request)
+    {
+        $request->validate([
+            'type' => 'required|in:sms,off',
+            'phone' => 'required_unless:type,off'
+        ]);
+        return $request->all();
+    }
 }

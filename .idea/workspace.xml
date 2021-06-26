@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="73741fe6-71da-4420-ab15-15a3cdc584c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/auth-factors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/auth-factors.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,6 +171,8 @@
       <workItem from="1623750404815" duration="3121000" />
       <workItem from="1623833638537" duration="2070000" />
       <workItem from="1624077526418" duration="9424000" />
+      <workItem from="1624425027488" duration="1756000" />
+      <workItem from="1624679747720" duration="7634000" />
     </task>
     <servers />
   </component>
