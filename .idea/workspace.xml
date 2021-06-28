@@ -4,10 +4,7 @@
     <list default="true" id="73741fe6-71da-4420-ab15-15a3cdc584c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profile/auth-factors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/auth-factors.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,6 +133,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1mqdbxfhUB3Ldr030fEnSaTdEBO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -172,7 +172,9 @@
       <workItem from="1623833638537" duration="2070000" />
       <workItem from="1624077526418" duration="9424000" />
       <workItem from="1624425027488" duration="1756000" />
-      <workItem from="1624679747720" duration="7634000" />
+      <workItem from="1624679747720" duration="8474000" />
+      <workItem from="1624766022247" duration="6851000" />
+      <workItem from="1624852670934" duration="13185000" />
     </task>
     <servers />
   </component>

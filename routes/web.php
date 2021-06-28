@@ -27,5 +27,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
     Route::get('/profile/auth-factors', [App\Http\Controllers\ProfileController::class, 'authFactors'])->name('profile.auth-factors');
     Route::post('/profile/auth-factors', [App\Http\Controllers\ProfileController::class, 'updateAuthFactors'])->name('profile.auth-factors');
+
+    Route::get('/profile/auth-factors/phone', [App\Http\Controllers\ProfileController::class, 'getPhoneVerify'])->name('profile.auth-factors.phone');
+    Route::post('/profile/auth-factors/phone', [App\Http\Controllers\ProfileController::class, 'sendPhoneVerify'])->name('profile.auth-factors.phone');
 });
 

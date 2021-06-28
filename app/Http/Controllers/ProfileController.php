@@ -18,10 +18,45 @@ class ProfileController extends Controller
 
     public function updateAuthFactors(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'type' => 'required|in:sms,off',
             'phone' => 'required_unless:type,off'
         ]);
-        return $request->all();
+
+        if($data['type'] == 'sms')
+        {
+            if($request->user()->phone !== $data['phone'])
+            {
+                return redirect(route('profile.auth-factors.phone'));
+
+            } else {
+                $request->user()->update([
+                    'auth_factor' => 'sms'
+                ]);
+            }
+        }
+
+        if($data['type'] == 'off')
+        {
+            $request->user()->update([
+                'auth_factor' => 'off'
+            ]);
+        }
+
+        return back();
+    }
+
+    public function getPhoneVerify()
+    {
+        return view('profile.phone-verify');
+    }
+
+    public function sendPhoneVerify(Request $request)
+    {
+        $request->validate([
+            'token' => 'required'
+        ]);
+
+        return $request->token;
     }
 }

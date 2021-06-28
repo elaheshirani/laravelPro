@@ -16,8 +16,11 @@
         <div class="form-group">
             <label for="type">Type</label>
             <select name="type" id="type" class="form-control">
-                <option value="off">off</option>
-                <option value="sms">sms</option>
+                @foreach(config('authfactor.types') as $key => $value)
+                    <option value="{{ $key }}"
+                        {{ old('type') == $key || auth()->user()->auth_factor == $key ? 'selected' : ''}}
+                    >{{ $value }}</option>
+                @endforeach
             </select>
         </div>
 
