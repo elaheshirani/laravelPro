@@ -13,7 +13,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="token" class="col-form-label">token</label>
-                                <input type="text" value="" placeholder="enter your token"
+                                <input type="text" value="" placeholder="enter your token" name="token"
                                        class="form-control @error('token') is-invalid @enderror">
                                 @error('token')
                                 <span class="invalid-feedback">

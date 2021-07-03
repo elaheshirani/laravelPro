@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ActiveCode;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -27,6 +28,10 @@ class ProfileController extends Controller
         {
             if($request->user()->phone !== $data['phone'])
             {
+                $code = ActiveCode::generateCode(auth()->user());
+                $request->session()->flash('phone', $data['phone']);
+                // TODO send sms
+
                 return redirect(route('profile.auth-factors.phone'));
 
             } else {
@@ -46,8 +51,15 @@ class ProfileController extends Controller
         return back();
     }
 
-    public function getPhoneVerify()
+    public function getPhoneVerify(Request $request)
     {
+
+        if(!$request->session()->has('phone'))
+        {
+            return redirect(route('profile.auth-factors'));
+        }
+
+        $request->session()->reflash();
         return view('profile.phone-verify');
     }
 
@@ -57,6 +69,30 @@ class ProfileController extends Controller
             'token' => 'required'
         ]);
 
-        return $request->token;
+        if(!$request->session()->has('phone'))
+        {
+            return redirect(route('profile.auth-factors'));
+        }
+
+
+        $status = ActiveCode::phoneVerify($request->token, $request->user());
+        if($status)
+        {
+            $request->user()->ActiveCode()->delete();
+            $request->user()->update([
+                'auth_factor' => 'sms',
+                'phone'       => $request->session()->get('phone')
+
+            ]);
+
+            alert()->success('Two-step authentication was successfully verified' , 'Authentication');
+        }
+        else
+        {
+            alert()->error('Two-step authentication was not successfully verified' , 'Authentication');
+        }
+
+        return redirect(route('profile.auth-factors'));
+
     }
 }

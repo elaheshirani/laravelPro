@@ -11,7 +11,7 @@
             </ul>
         </div>
     @endif
-    <form action="#" method="post">
+    <form action="{{ route('profile.auth-factors') }}" method="post">
         @csrf
         <div class="form-group">
             <label for="type">Type</label>
