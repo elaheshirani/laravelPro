@@ -4,10 +4,6 @@
     <list default="true" id="73741fe6-71da-4420-ab15-15a3cdc584c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ActiveCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ActiveCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/auth-factors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/auth-factors.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/phone-verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/phone-verify.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,6 +157,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/auth" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -188,7 +185,10 @@
       <workItem from="1624852670934" duration="14215000" />
       <workItem from="1624944383266" duration="3503000" />
       <workItem from="1625042111485" duration="6226000" />
-      <workItem from="1625284629732" duration="22071000" />
+      <workItem from="1625284629732" duration="22471000" />
+      <workItem from="1625374618452" duration="2523000" />
+      <workItem from="1625397341145" duration="2751000" />
+      <workItem from="1625460517014" duration="6927000" />
     </task>
     <servers />
   </component>

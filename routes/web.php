@@ -21,6 +21,9 @@ Auth::routes(['verify' => true]);
 Route::get('/auth/google',[\App\Http\Controllers\Auth\GoogleAuthController::class,'redirect'])->name('auth.google');
 Route::get('/auth/google/callback',[\App\Http\Controllers\Auth\GoogleAuthController::class,'callback']);
 
+Route::post('/auth/token',[\App\Http\Controllers\Auth\AuthTokenController::class,'sendToken']);
+Route::get('/auth/token',[\App\Http\Controllers\Auth\AuthTokenController::class,'getToken'])->name('auth-factors.token');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function(){

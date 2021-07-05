@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActiveCode;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -49,6 +50,15 @@ class LoginController extends Controller
                 'using_sms' => false,
                 'remember' => $request->has('remember')
             ]);
+
+            if($user->auth_factor == "sms")
+            {
+                $code = ActiveCode::generateCode($user);
+                // TODO send sms
+                $request->session()->push('auth.using_sms', true);
+            }
+
+            return redirect(route('auth-factors.token'));
 
         }
 
