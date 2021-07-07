@@ -9,7 +9,7 @@
                         Two Auth Factor
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('profile.auth-factors.phone') }}" method="post">
+                        <form action="{{ route('auth-factors.token') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="token" class="col-form-label">token</label>

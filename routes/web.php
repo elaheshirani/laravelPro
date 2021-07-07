@@ -18,20 +18,27 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
-Route::get('/auth/google',[\App\Http\Controllers\Auth\GoogleAuthController::class,'redirect'])->name('auth.google');
-Route::get('/auth/google/callback',[\App\Http\Controllers\Auth\GoogleAuthController::class,'callback']);
 
-Route::post('/auth/token',[\App\Http\Controllers\Auth\AuthTokenController::class,'sendToken']);
-Route::get('/auth/token',[\App\Http\Controllers\Auth\AuthTokenController::class,'getToken'])->name('auth-factors.token');
+Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
+    Route::get('/google','GoogleAuthController@redirect')->name('auth.google');
+    Route::get('/google/callback','GoogleAuthController@callback');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('/token','AuthTokenController@sendToken');
+    Route::get('/token','AuthTokenController@getToken')->name('auth-factors.token');
+});
 
-Route::middleware('auth')->group(function(){
-    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-    Route::get('/profile/auth-factors', [App\Http\Controllers\ProfileController::class, 'authFactors'])->name('profile.auth-factors');
-    Route::post('/profile/auth-factors', [App\Http\Controllers\ProfileController::class, 'updateAuthFactors']);
 
-    Route::get('/profile/auth-factors/phone', [App\Http\Controllers\ProfileController::class, 'getPhoneVerify'])->name('profile.auth-factors.phone');
-    Route::post('/profile/auth-factors/phone', [App\Http\Controllers\ProfileController::class, 'sendPhoneVerify']);
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'profile', 'middleware' => 'auth'], function(){
+
+    Route::get('/', 'ProfileController@index')->name('profile');
+    Route::group(['prefix' => 'auth-factors'], function(){
+        Route::get('/', 'ProfileController@authFactors')->name('profile.auth-factors');
+        Route::post('/', 'ProfileController@updateAuthFactors');
+
+        Route::get('/phone', 'ProfileController@getPhoneVerify')->name('profile.auth-factors.phone');
+        Route::post('/phone', 'ProfileController@sendPhoneVerify');
+    });
 });
 

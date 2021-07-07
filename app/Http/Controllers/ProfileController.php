@@ -21,7 +21,7 @@ class ProfileController extends Controller
     {
         $data = $request->validate([
             'type' => 'required|in:sms,off',
-            'phone' => 'required_unless:type,off'
+            'phone' => 'required_unless:type,off|unique:users'
         ]);
 
         if($data['type'] == 'sms')
