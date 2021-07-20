@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ActiveCode;
+use App\Notifications\ActiveCodeNotification;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -30,7 +31,9 @@ class ProfileController extends Controller
             {
                 $code = ActiveCode::generateCode(auth()->user());
                 $request->session()->flash('phone', $data['phone']);
-                // TODO send sms
+
+                // send the code to user phone number via notification
+                $request->user()->notify(new ActiveCodeNotification($code));
 
                 return redirect(route('profile.auth-factors.phone'));
 
@@ -74,7 +77,6 @@ class ProfileController extends Controller
             return redirect(route('profile.auth-factors'));
         }
 
-
         $status = ActiveCode::phoneVerify($request->token, $request->user());
         if($status)
         {
@@ -82,7 +84,6 @@ class ProfileController extends Controller
             $request->user()->update([
                 'auth_factor' => 'sms',
                 'phone'       => $request->session()->get('phone')
-
             ]);
 
             alert()->success('Two-step authentication was successfully verified' , 'Authentication');
